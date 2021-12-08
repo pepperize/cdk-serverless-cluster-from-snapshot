@@ -11,7 +11,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: "@pepperize/cdk-serverless-cluster-from-snapshot",
   description:
     "This project provides a CDK construct creating a serverless database cluster from a snapshot with AWS RDS Aurora engine.",
-  keywords: ["AWS", "CDK", "Serverless", "RDS", "Aurora", "Database", "Snapshot"],
+  keywords: ["AWS", "CDK", "Serverless", "Cluster", "RDS", "Aurora", "Database", "Snapshot"],
   repositoryUrl: "https://github.com/patrick.florek/cdk-serverless-cluster-from-snapshot.git",
 
   cdkDependencies: [
