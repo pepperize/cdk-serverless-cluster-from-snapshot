@@ -4959,10 +4959,10 @@ jsii-diff@^1.47.0:
     typescript "~3.9.10"
     yargs "^16.2.0"
 
-jsii-docgen@^4.2.9:
-  version "4.2.9"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.9.tgz#40291252179d4fa6853aa44539be3397b1041e25"
-  integrity sha512-wcGQPzZYalHU17koTiuI2nHMsLeSORp7KW7JSz/VOY0w+AKRlkeBOmPKoZejjGJCoNk1s4bhU7Sn+TW56riYAA==
+jsii-docgen@^4.2.10:
+  version "4.2.10"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.10.tgz#795398d78c195a253612e249418f49a4362dd258"
+  integrity sha512-atPIdpCuOlzL83GsSVk5E0EmR6NV19EtJQjDNhz8fVBQFbQKpU8BYafuFgevIJNLk9emgO7u9Ss9Max2W52tCA==
   dependencies:
     "@jsii/spec" "^1.47.0"
     case "^1.6.3"
