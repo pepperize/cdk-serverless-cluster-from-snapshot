@@ -10,3 +10,29 @@
 This project provides a CDK construct creating a serverless database cluster from a snapshot with AWS RDS Aurora engine.
 
 See [API.md](https://github.com/pepperize/cdk-serverless-cluster-from-snapshot/blob/main/API.md)
+
+## Install
+
+### TypeScript
+
+```shell
+npm install @pepperize/cdk-serverless-cluster-from-snapshot
+```
+
+or
+
+```shell
+yarn add @pepperize/cdk-serverless-cluster-from-snapshot
+```
+
+### Python
+
+```shell
+pip install pepperize.cdk-serverless-cluster-from-snapshot
+```
+
+### C# / .Net
+
+```
+dotnet add package Pepperize.CDK.ServerlessClusterFromSnapshot
+```
