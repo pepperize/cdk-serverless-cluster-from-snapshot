@@ -1,7 +1,6 @@
-import { Template } from "@aws-cdk/assertions";
+import { aws_rds } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
 import { Vpc } from "@aws-cdk/aws-ec2";
-import { DatabaseClusterEngine, ParameterGroup } from "@aws-cdk/aws-rds";
-import { App, Aspects, SecretValue, Stack } from "@aws-cdk/core";
 import { AwsSolutionsChecks } from "cdk-nag";
 import { ServerlessClusterFromSnapshot } from "../src";
 

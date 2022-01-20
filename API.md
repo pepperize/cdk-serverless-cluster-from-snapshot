@@ -4,7 +4,7 @@
 
 ### ServerlessClusterFromSnapshot <a name="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot" id="pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshot"></a>
 
-- *Implements:* [`@aws-cdk/aws-rds.IServerlessCluster`](#@aws-cdk/aws-rds.IServerlessCluster)
+- *Implements:* [`aws-cdk-lib.aws_rds.IServerlessCluster`](#aws-cdk-lib.aws_rds.IServerlessCluster)
 
 A Serverless Cluster restored from a snapshot.
 
@@ -18,7 +18,7 @@ new ServerlessClusterFromSnapshot(scope: Construct, id: string, props: Serverles
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotparameterscope)<span title="Required">*</span> | [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct) | *No description.* |
+| [`scope`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
 | [`id`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotparameterid)<span title="Required">*</span> | `string` | *No description.* |
 | [`props`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotparameterprops)<span title="Required">*</span> | [`@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshotProps`](#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshotProps) | *No description.* |
 
@@ -26,7 +26,7 @@ new ServerlessClusterFromSnapshot(scope: Construct, id: string, props: Serverles
 
 ##### `scope`<sup>Required</sup> <a name="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.parameter.scope" id="pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotparameterscope"></a>
 
-- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
+- *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
@@ -67,7 +67,7 @@ public addRotationMultiUser(id: string, options: RotationMultiUserOptions)
 
 ###### `options`<sup>Required</sup> <a name="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.parameter.options" id="pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotparameteroptions"></a>
 
-- *Type:* [`@aws-cdk/aws-rds.RotationMultiUserOptions`](#@aws-cdk/aws-rds.RotationMultiUserOptions)
+- *Type:* [`aws-cdk-lib.aws_rds.RotationMultiUserOptions`](#aws-cdk-lib.aws_rds.RotationMultiUserOptions)
 
 ---
 
@@ -79,7 +79,7 @@ public addRotationSingleUser(options?: RotationSingleUserOptions)
 
 ###### `options`<sup>Optional</sup> <a name="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.parameter.options" id="pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotparameteroptions"></a>
 
-- *Type:* [`@aws-cdk/aws-rds.RotationSingleUserOptions`](#@aws-cdk/aws-rds.RotationSingleUserOptions)
+- *Type:* [`aws-cdk-lib.aws_rds.RotationSingleUserOptions`](#aws-cdk-lib.aws_rds.RotationSingleUserOptions)
 
 ---
 
@@ -97,7 +97,7 @@ public grantDataApiAccess(grantee: IGrantable)
 
 ###### `grantee`<sup>Required</sup> <a name="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.parameter.grantee" id="pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotparametergrantee"></a>
 
-- *Type:* [`@aws-cdk/aws-iam.IGrantable`](#@aws-cdk/aws-iam.IGrantable)
+- *Type:* [`aws-cdk-lib.aws_iam.IGrantable`](#aws-cdk-lib.aws_iam.IGrantable)
 
 The principal to grant access to.
 
@@ -109,11 +109,11 @@ The principal to grant access to.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | [`clusterArn`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertyclusterarn)<span title="Required">*</span> | `string` | The ARN of the cluster. |
-| [`clusterEndpoint`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertyclusterendpoint)<span title="Required">*</span> | [`@aws-cdk/aws-rds.Endpoint`](#@aws-cdk/aws-rds.Endpoint) | The endpoint to use for read/write operations. |
+| [`clusterEndpoint`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertyclusterendpoint)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.Endpoint`](#aws-cdk-lib.aws_rds.Endpoint) | The endpoint to use for read/write operations. |
 | [`clusterIdentifier`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertyclusteridentifier)<span title="Required">*</span> | `string` | Identifier of the cluster. |
-| [`clusterReadEndpoint`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertyclusterreadendpoint)<span title="Required">*</span> | [`@aws-cdk/aws-rds.Endpoint`](#@aws-cdk/aws-rds.Endpoint) | The endpoint to use for read/write operations. |
-| [`connections`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertyconnections)<span title="Required">*</span> | [`@aws-cdk/aws-ec2.Connections`](#@aws-cdk/aws-ec2.Connections) | Access to the network connections. |
-| [`secret`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertysecret) | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | The secret attached to this cluster. |
+| [`clusterReadEndpoint`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertyclusterreadendpoint)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.Endpoint`](#aws-cdk-lib.aws_rds.Endpoint) | The endpoint to use for read/write operations. |
+| [`connections`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertyconnections)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.Connections`](#aws-cdk-lib.aws_ec2.Connections) | Access to the network connections. |
+| [`secret`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropertysecret) | [`aws-cdk-lib.aws_secretsmanager.ISecret`](#aws-cdk-lib.aws_secretsmanager.ISecret) | The secret attached to this cluster. |
 
 ---
 
@@ -135,7 +135,7 @@ The ARN of the cluster.
 public readonly clusterEndpoint: Endpoint;
 ```
 
-- *Type:* [`@aws-cdk/aws-rds.Endpoint`](#@aws-cdk/aws-rds.Endpoint)
+- *Type:* [`aws-cdk-lib.aws_rds.Endpoint`](#aws-cdk-lib.aws_rds.Endpoint)
 
 The endpoint to use for read/write operations.
 
@@ -159,7 +159,7 @@ Identifier of the cluster.
 public readonly clusterReadEndpoint: Endpoint;
 ```
 
-- *Type:* [`@aws-cdk/aws-rds.Endpoint`](#@aws-cdk/aws-rds.Endpoint)
+- *Type:* [`aws-cdk-lib.aws_rds.Endpoint`](#aws-cdk-lib.aws_rds.Endpoint)
 
 The endpoint to use for read/write operations.
 
@@ -171,7 +171,7 @@ The endpoint to use for read/write operations.
 public readonly connections: Connections;
 ```
 
-- *Type:* [`@aws-cdk/aws-ec2.Connections`](#@aws-cdk/aws-ec2.Connections)
+- *Type:* [`aws-cdk-lib.aws_ec2.Connections`](#aws-cdk-lib.aws_ec2.Connections)
 
 Access to the network connections.
 
@@ -183,7 +183,7 @@ Access to the network connections.
 public readonly secret: ISecret;
 ```
 
-- *Type:* [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret)
+- *Type:* [`aws-cdk-lib.aws_secretsmanager.ISecret`](#aws-cdk-lib.aws_secretsmanager.ISecret)
 
 The secret attached to this cluster.
 
@@ -208,22 +208,22 @@ const serverlessClusterFromSnapshotProps: ServerlessClusterFromSnapshotProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`engine`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyengine)<span title="Required">*</span> | [`@aws-cdk/aws-rds.IClusterEngine`](#@aws-cdk/aws-rds.IClusterEngine) | What kind of database to start. |
+| [`engine`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | What kind of database to start. |
 | [`snapshotIdentifier`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertysnapshotidentifier)<span title="Required">*</span> | `string` | The identifier for the DB snapshot or DB cluster snapshot to restore from. |
-| [`vpc`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyvpc)<span title="Required">*</span> | [`@aws-cdk/aws-ec2.IVpc`](#@aws-cdk/aws-ec2.IVpc) | The VPC that this Aurora Serverless cluster has been created in. |
-| [`backupRetention`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertybackupretention) | [`@aws-cdk/core.Duration`](#@aws-cdk/core.Duration) | The number of days during which automatic DB snapshots are retained. |
+| [`vpc`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyvpc)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc) | The VPC that this Aurora Serverless cluster has been created in. |
+| [`backupRetention`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertybackupretention) | [`aws-cdk-lib.Duration`](#aws-cdk-lib.Duration) | The number of days during which automatic DB snapshots are retained. |
 | [`clusterIdentifier`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyclusteridentifier) | `string` | An optional identifier for the cluster. |
-| [`credentials`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertycredentials) | [`@aws-cdk/aws-rds.Credentials`](#@aws-cdk/aws-rds.Credentials) | Credentials for the administrative user. |
+| [`credentials`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertycredentials) | [`aws-cdk-lib.aws_rds.Credentials`](#aws-cdk-lib.aws_rds.Credentials) | Credentials for the administrative user. |
 | [`defaultDatabaseName`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertydefaultdatabasename) | `string` | Name of a database which is automatically created inside the cluster. |
 | [`deletionProtection`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertydeletionprotection) | `boolean` | Indicates whether the DB cluster should have deletion protection enabled. |
 | [`enableDataApi`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyenabledataapi) | `boolean` | Whether to enable the Data API. |
-| [`parameterGroup`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyparametergroup) | [`@aws-cdk/aws-rds.IParameterGroup`](#@aws-cdk/aws-rds.IParameterGroup) | Additional parameters to pass to the database engine. |
-| [`removalPolicy`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyremovalpolicy) | [`@aws-cdk/core.RemovalPolicy`](#@aws-cdk/core.RemovalPolicy) | The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update. |
-| [`scaling`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyscaling) | [`@aws-cdk/aws-rds.ServerlessScalingOptions`](#@aws-cdk/aws-rds.ServerlessScalingOptions) | Scaling configuration of an Aurora Serverless database cluster. |
-| [`securityGroups`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertysecuritygroups) | [`@aws-cdk/aws-ec2.ISecurityGroup`](#@aws-cdk/aws-ec2.ISecurityGroup)[] | Security group. |
-| [`storageEncryptionKey`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertystorageencryptionkey) | [`@aws-cdk/aws-kms.IKey`](#@aws-cdk/aws-kms.IKey) | The KMS key for storage encryption. |
-| [`subnetGroup`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertysubnetgroup) | [`@aws-cdk/aws-rds.ISubnetGroup`](#@aws-cdk/aws-rds.ISubnetGroup) | Existing subnet group for the cluster. |
-| [`vpcSubnets`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyvpcsubnets) | [`@aws-cdk/aws-ec2.SubnetSelection`](#@aws-cdk/aws-ec2.SubnetSelection) | Where to place the instances within the VPC. |
+| [`parameterGroup`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyparametergroup) | [`aws-cdk-lib.aws_rds.IParameterGroup`](#aws-cdk-lib.aws_rds.IParameterGroup) | Additional parameters to pass to the database engine. |
+| [`removalPolicy`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyremovalpolicy) | [`aws-cdk-lib.RemovalPolicy`](#aws-cdk-lib.RemovalPolicy) | The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update. |
+| [`scaling`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyscaling) | [`aws-cdk-lib.aws_rds.ServerlessScalingOptions`](#aws-cdk-lib.aws_rds.ServerlessScalingOptions) | Scaling configuration of an Aurora Serverless database cluster. |
+| [`securityGroups`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertysecuritygroups) | [`aws-cdk-lib.aws_ec2.ISecurityGroup`](#aws-cdk-lib.aws_ec2.ISecurityGroup)[] | Security group. |
+| [`storageEncryptionKey`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertystorageencryptionkey) | [`aws-cdk-lib.aws_kms.IKey`](#aws-cdk-lib.aws_kms.IKey) | The KMS key for storage encryption. |
+| [`subnetGroup`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertysubnetgroup) | [`aws-cdk-lib.aws_rds.ISubnetGroup`](#aws-cdk-lib.aws_rds.ISubnetGroup) | Existing subnet group for the cluster. |
+| [`vpcSubnets`](#pepperizecdkserverlessclusterfromsnapshotserverlessclusterfromsnapshotpropspropertyvpcsubnets) | [`aws-cdk-lib.aws_ec2.SubnetSelection`](#aws-cdk-lib.aws_ec2.SubnetSelection) | Where to place the instances within the VPC. |
 
 ---
 
@@ -233,7 +233,7 @@ const serverlessClusterFromSnapshotProps: ServerlessClusterFromSnapshotProps = {
 public readonly engine: IClusterEngine;
 ```
 
-- *Type:* [`@aws-cdk/aws-rds.IClusterEngine`](#@aws-cdk/aws-rds.IClusterEngine)
+- *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
 
 What kind of database to start.
 
@@ -259,7 +259,7 @@ You can use either the name or the Amazon Resource Name (ARN) to specify a DB cl
 public readonly vpc: IVpc;
 ```
 
-- *Type:* [`@aws-cdk/aws-ec2.IVpc`](#@aws-cdk/aws-ec2.IVpc)
+- *Type:* [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc)
 
 The VPC that this Aurora Serverless cluster has been created in.
 
@@ -271,7 +271,7 @@ The VPC that this Aurora Serverless cluster has been created in.
 public readonly backupRetention: Duration;
 ```
 
-- *Type:* [`@aws-cdk/core.Duration`](#@aws-cdk/core.Duration)
+- *Type:* [`aws-cdk-lib.Duration`](#aws-cdk-lib.Duration)
 - *Default:* Duration.days(1)
 
 The number of days during which automatic DB snapshots are retained.
@@ -299,7 +299,7 @@ An optional identifier for the cluster.
 public readonly credentials: Credentials;
 ```
 
-- *Type:* [`@aws-cdk/aws-rds.Credentials`](#@aws-cdk/aws-rds.Credentials)
+- *Type:* [`aws-cdk-lib.aws_rds.Credentials`](#aws-cdk-lib.aws_rds.Credentials)
 - *Default:* A username of 'admin' and SecretsManager-generated password
 
 Credentials for the administrative user.
@@ -353,7 +353,7 @@ Whether to enable the Data API.
 public readonly parameterGroup: IParameterGroup;
 ```
 
-- *Type:* [`@aws-cdk/aws-rds.IParameterGroup`](#@aws-cdk/aws-rds.IParameterGroup)
+- *Type:* [`aws-cdk-lib.aws_rds.IParameterGroup`](#aws-cdk-lib.aws_rds.IParameterGroup)
 - *Default:* no parameter group.
 
 Additional parameters to pass to the database engine.
@@ -366,7 +366,7 @@ Additional parameters to pass to the database engine.
 public readonly removalPolicy: RemovalPolicy;
 ```
 
-- *Type:* [`@aws-cdk/core.RemovalPolicy`](#@aws-cdk/core.RemovalPolicy)
+- *Type:* [`aws-cdk-lib.RemovalPolicy`](#aws-cdk-lib.RemovalPolicy)
 - *Default:* RemovalPolicy.SNAPSHOT (remove the cluster and instances, but retain a snapshot of the data)
 
 The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
@@ -379,7 +379,7 @@ The removal policy to apply when the cluster and its instances are removed from 
 public readonly scaling: ServerlessScalingOptions;
 ```
 
-- *Type:* [`@aws-cdk/aws-rds.ServerlessScalingOptions`](#@aws-cdk/aws-rds.ServerlessScalingOptions)
+- *Type:* [`aws-cdk-lib.aws_rds.ServerlessScalingOptions`](#aws-cdk-lib.aws_rds.ServerlessScalingOptions)
 - *Default:* Serverless cluster is automatically paused after 5 minutes of being idle. minimum capacity: 2 ACU maximum capacity: 16 ACU
 
 Scaling configuration of an Aurora Serverless database cluster.
@@ -392,7 +392,7 @@ Scaling configuration of an Aurora Serverless database cluster.
 public readonly securityGroups: ISecurityGroup[];
 ```
 
-- *Type:* [`@aws-cdk/aws-ec2.ISecurityGroup`](#@aws-cdk/aws-ec2.ISecurityGroup)[]
+- *Type:* [`aws-cdk-lib.aws_ec2.ISecurityGroup`](#aws-cdk-lib.aws_ec2.ISecurityGroup)[]
 - *Default:* a new security group is created.
 
 Security group.
@@ -405,7 +405,7 @@ Security group.
 public readonly storageEncryptionKey: IKey;
 ```
 
-- *Type:* [`@aws-cdk/aws-kms.IKey`](#@aws-cdk/aws-kms.IKey)
+- *Type:* [`aws-cdk-lib.aws_kms.IKey`](#aws-cdk-lib.aws_kms.IKey)
 - *Default:* the default master key will be used for storage encryption
 
 The KMS key for storage encryption.
@@ -420,7 +420,7 @@ If you specify the SnapshotIdentifier property, the StorageEncrypted property va
 public readonly subnetGroup: ISubnetGroup;
 ```
 
-- *Type:* [`@aws-cdk/aws-rds.ISubnetGroup`](#@aws-cdk/aws-rds.ISubnetGroup)
+- *Type:* [`aws-cdk-lib.aws_rds.ISubnetGroup`](#aws-cdk-lib.aws_rds.ISubnetGroup)
 - *Default:* a new subnet group will be created.
 
 Existing subnet group for the cluster.
@@ -433,7 +433,7 @@ Existing subnet group for the cluster.
 public readonly vpcSubnets: SubnetSelection;
 ```
 
-- *Type:* [`@aws-cdk/aws-ec2.SubnetSelection`](#@aws-cdk/aws-ec2.SubnetSelection)
+- *Type:* [`aws-cdk-lib.aws_ec2.SubnetSelection`](#aws-cdk-lib.aws_ec2.SubnetSelection)
 - *Default:* the VPC default strategy if not specified.
 
 Where to place the instances within the VPC.
