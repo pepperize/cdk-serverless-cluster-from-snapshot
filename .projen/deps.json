@@ -6,6 +6,11 @@
       "type": "build"
     },
     {
+      "name": "@pepperize/projen-awscdk-construct",
+      "version": "^0.0.8",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
