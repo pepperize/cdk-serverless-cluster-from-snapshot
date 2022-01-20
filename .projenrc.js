@@ -24,7 +24,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     "@aws-cdk/cx-api",
   ],
   cdkTestDependencies: ["@aws-cdk/assertions"],
-  devDeps: ["cdk-nag"],
+  devDeps: ["@pepperize/projen-awscdk-construct@^0.0.8", "cdk-nag"],
 
   autoApproveUpgrades: true,
   autoApproveOptions: { allowedUsernames: ["pflorek"], secret: "GITHUB_TOKEN" },
