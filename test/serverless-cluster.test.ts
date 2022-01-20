@@ -19,7 +19,11 @@ describe("ServerlessClusterFromSnapshot", () => {
         username: "admin",
         password: SecretValue.plainText("tooshort"),
       },
-      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
+      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(
+        stack,
+        "ParameterGroup",
+        "default.aurora-postgresql10"
+      ),
     });
 
     // Then
@@ -51,7 +55,11 @@ describe("ServerlessClusterFromSnapshot", () => {
       engine: aws_rds.DatabaseClusterEngine.AURORA_MYSQL,
       snapshotIdentifier: "serverless-cluster-from-snapshot",
       vpc,
-      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
+      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(
+        stack,
+        "ParameterGroup",
+        "default.aurora-postgresql10"
+      ),
     });
 
     // Then
@@ -70,7 +78,11 @@ describe("ServerlessClusterFromSnapshot", () => {
       engine: aws_rds.DatabaseClusterEngine.AURORA_MYSQL,
       snapshotIdentifier: "serverless-cluster-from-snapshot",
       vpc,
-      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
+      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(
+        stack,
+        "ParameterGroup",
+        "default.aurora-postgresql10"
+      ),
     });
 
     // Then

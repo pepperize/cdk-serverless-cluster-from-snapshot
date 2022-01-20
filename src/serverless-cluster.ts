@@ -1,4 +1,10 @@
-import { aws_ec2, aws_iam, aws_kms, aws_secretsmanager, aws_rds, cx_api,
+import {
+  aws_ec2,
+  aws_iam,
+  aws_kms,
+  aws_secretsmanager,
+  aws_rds,
+  cx_api,
   Annotations,
   Duration,
   FeatureFlags,
@@ -7,14 +13,15 @@ import { aws_ec2, aws_iam, aws_kms, aws_secretsmanager, aws_rds, cx_api,
   Token,
   Resource,
   ArnFormat,
-  Stack, } from "aws-cdk-lib";
-import { Construct } from "constructs";
+  Stack,
+} from "aws-cdk-lib";
+import { DATA_API_ACTIONS } from "aws-cdk-lib/aws-rds/lib/perms";
 import {
   DEFAULT_PASSWORD_EXCLUDE_CHARS,
   defaultDeletionProtection,
-  renderCredentials
+  renderCredentials,
 } from "aws-cdk-lib/aws-rds/lib/private/util";
-import { DATA_API_ACTIONS } from "aws-cdk-lib/aws-rds/lib/perms";
+import { Construct } from "constructs";
 
 /**
  *  Properties to configure an Aurora Serverless Cluster
@@ -301,7 +308,10 @@ export class ServerlessClusterFromSnapshot extends Resource implements aws_rds.I
   /**
    * Adds the multi user rotation to this cluster.
    */
-  public addRotationMultiUser(id: string, options: aws_rds.RotationMultiUserOptions): aws_secretsmanager.SecretRotation {
+  public addRotationMultiUser(
+    id: string,
+    options: aws_rds.RotationMultiUserOptions
+  ): aws_secretsmanager.SecretRotation {
     if (!this.secret) {
       throw new Error("Cannot add multi user rotation for a cluster without secret.");
     }
@@ -315,7 +325,9 @@ export class ServerlessClusterFromSnapshot extends Resource implements aws_rds.I
       target: this,
     });
   }
-  private renderScalingConfiguration(options: aws_rds.ServerlessScalingOptions): aws_rds.CfnDBCluster.ScalingConfigurationProperty {
+  private renderScalingConfiguration(
+    options: aws_rds.ServerlessScalingOptions
+  ): aws_rds.CfnDBCluster.ScalingConfigurationProperty {
     const minCapacity = options.minCapacity;
     const maxCapacity = options.maxCapacity;
 
