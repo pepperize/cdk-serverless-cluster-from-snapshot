@@ -1,6 +1,5 @@
-import { aws_rds } from "aws-cdk-lib";
+import { aws_ec2, aws_rds, App, Stack, SecretValue, Aspects } from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
-import { Vpc } from "@aws-cdk/aws-ec2";
 import { AwsSolutionsChecks } from "cdk-nag";
 import { ServerlessClusterFromSnapshot } from "../src";
 
@@ -9,18 +8,18 @@ describe("ServerlessClusterFromSnapshot", () => {
     // Given
     const app = new App();
     const stack = new Stack(app, "Stack");
-    const vpc = new Vpc(stack, "Vpc");
+    const vpc = new aws_ec2.Vpc(stack, "Vpc");
 
     // When
     new ServerlessClusterFromSnapshot(stack, "ServerlessDatabase", {
-      engine: DatabaseClusterEngine.AURORA_POSTGRESQL,
+      engine: aws_rds.DatabaseClusterEngine.AURORA_POSTGRESQL,
       snapshotIdentifier: "serverless-cluster-from-snapshot",
       vpc,
       credentials: {
         username: "admin",
         password: SecretValue.plainText("tooshort"),
       },
-      parameterGroup: ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
+      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
     });
 
     // Then
@@ -45,14 +44,14 @@ describe("ServerlessClusterFromSnapshot", () => {
     // Given
     const app = new App();
     const stack = new Stack(app, "Stack");
-    const vpc = new Vpc(stack, "Vpc");
+    const vpc = new aws_ec2.Vpc(stack, "Vpc");
 
     // When
     new ServerlessClusterFromSnapshot(stack, "ServerlessDatabase", {
-      engine: DatabaseClusterEngine.AURORA_MYSQL,
+      engine: aws_rds.DatabaseClusterEngine.AURORA_MYSQL,
       snapshotIdentifier: "serverless-cluster-from-snapshot",
       vpc,
-      parameterGroup: ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
+      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
     });
 
     // Then
@@ -64,14 +63,14 @@ describe("ServerlessClusterFromSnapshot", () => {
     // Given
     const app = new App();
     const stack = new Stack(app, "Stack");
-    const vpc = new Vpc(stack, "Vpc");
+    const vpc = new aws_ec2.Vpc(stack, "Vpc");
 
     // When
     new ServerlessClusterFromSnapshot(stack, "ServerlessDatabase", {
-      engine: DatabaseClusterEngine.AURORA_MYSQL,
+      engine: aws_rds.DatabaseClusterEngine.AURORA_MYSQL,
       snapshotIdentifier: "serverless-cluster-from-snapshot",
       vpc,
-      parameterGroup: ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
+      parameterGroup: aws_rds.ParameterGroup.fromParameterGroupName(stack, "ParameterGroup", "default.aurora-postgresql10"),
     });
 
     // Then
