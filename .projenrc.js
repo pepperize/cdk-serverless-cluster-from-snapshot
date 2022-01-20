@@ -1,38 +1,19 @@
-const { awscdk, JsonFile } = require("projen");
+const { AwsCdkConstructLibrary } = require("@pepperize/projen-awscdk-construct");
 const { NpmAccess } = require("projen/lib/javascript");
-const project = new awscdk.AwsCdkConstructLibrary({
+const project = new AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
-  authorOrganization: true,
   license: "MIT",
   copyrightOwner: "Pepperize UG (haftungsbeschränkt)",
-  cdkVersion: "1.114.0",
+  cdkVersion: "2.8.0",
   defaultReleaseBranch: "main",
   name: "@pepperize/cdk-serverless-cluster-from-snapshot",
   description:
     "This project provides a CDK construct creating a serverless database cluster from a snapshot with AWS RDS Aurora engine.",
   keywords: ["AWS", "CDK", "Serverless", "Cluster", "RDS", "Aurora", "Database", "Snapshot"],
   repositoryUrl: "https://github.com/pepperize/cdk-serverless-cluster-from-snapshot.git",
-
-  cdkDependencies: [
-    "@aws-cdk/core",
-    "@aws-cdk/aws-ec2",
-    "@aws-cdk/aws-iam",
-    "@aws-cdk/aws-kms",
-    "@aws-cdk/aws-rds",
-    "@aws-cdk/aws-secretsmanager",
-    "@aws-cdk/cx-api",
-  ],
-  cdkTestDependencies: ["@aws-cdk/assertions"],
-  devDeps: ["@pepperize/projen-awscdk-construct@^0.0.8", "cdk-nag"],
-
-  autoApproveUpgrades: true,
-  autoApproveOptions: { allowedUsernames: ["pflorek"], secret: "GITHUB_TOKEN" },
-  depsUpgradeOptions: {
-    workflowOptions: {
-      secret: "PROJEN_GITHUB_TOKEN",
-    },
-  },
+  testDeps: ["@aws-cdk/assertions"],
+  devDeps: ["@pepperize/projen-awscdk-construct@^0.0.8", "cdk-nag@^2.0.0"],
 
   releaseToNpm: true,
   npmAccess: NpmAccess.PUBLIC,
@@ -44,22 +25,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: "pepperize.cdk-serverless-cluster-from-snapshot",
     module: "pepperize_cdk_serverless_cluster_from_snapshot",
   },
-
-  eslint: true,
-  eslintOptions: {
-    prettier: true,
-  },
-
-  gitignore: [".idea"],
-});
-
-project.setScript("format", "prettier --write 'src/**/*.ts' test/**/*.ts '.projenrc.js' 'README.md'");
-
-new JsonFile(project, ".prettierrc", {
-  obj: {
-    printWidth: 120,
-  },
-  marker: false,
 });
 
 project.synth();

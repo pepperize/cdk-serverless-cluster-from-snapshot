@@ -1,35 +1,11 @@
-import { Connections, ISecurityGroup, IVpc, Port, SecurityGroup, SubnetSelection } from "@aws-cdk/aws-ec2";
-import { Grant, IGrantable } from "@aws-cdk/aws-iam";
-import { IKey } from "@aws-cdk/aws-kms";
 import {
-  CfnDBCluster,
-  Credentials,
-  Endpoint,
-  IClusterEngine,
-  IParameterGroup,
-  IServerlessCluster,
-  ISubnetGroup,
-  RotationMultiUserOptions,
-  RotationSingleUserOptions,
-  ServerlessScalingOptions,
-  SubnetGroup,
-} from "@aws-cdk/aws-rds";
-import { DATA_API_ACTIONS } from "@aws-cdk/aws-rds/lib/perms";
-import {
-  DEFAULT_PASSWORD_EXCLUDE_CHARS,
-  defaultDeletionProtection,
-  renderCredentials,
-} from "@aws-cdk/aws-rds/lib/private/util";
-import {
-  AttachmentTargetType,
-  ISecret,
-  SecretAttachmentTargetProps,
-  SecretRotation,
-  SecretRotationApplication,
-} from "@aws-cdk/aws-secretsmanager";
-import {
+  aws_ec2,
+  aws_iam,
+  aws_kms,
+  aws_secretsmanager,
+  aws_rds,
+  cx_api,
   Annotations,
-  Construct,
   Duration,
   FeatureFlags,
   Lazy,
@@ -38,8 +14,14 @@ import {
   Resource,
   ArnFormat,
   Stack,
-} from "@aws-cdk/core";
-import { RDS_LOWERCASE_DB_IDENTIFIER } from "@aws-cdk/cx-api";
+} from "aws-cdk-lib";
+import { DATA_API_ACTIONS } from "aws-cdk-lib/aws-rds/lib/perms";
+import {
+  DEFAULT_PASSWORD_EXCLUDE_CHARS,
+  defaultDeletionProtection,
+  renderCredentials,
+} from "aws-cdk-lib/aws-rds/lib/private/util";
+import { Construct } from "constructs";
 
 /**
  *  Properties to configure an Aurora Serverless Cluster
@@ -49,14 +31,14 @@ export interface ServerlessClusterFromSnapshotProps {
   /**
    * What kind of database to start
    */
-  readonly engine: IClusterEngine;
+  readonly engine: aws_rds.IClusterEngine;
 
   /**
    * Credentials for the administrative user
    *
    * @default - A username of 'admin' and SecretsManager-generated password
    */
-  readonly credentials?: Credentials;
+  readonly credentials?: aws_rds.Credentials;
 
   /**
    * An optional identifier for the cluster
@@ -109,14 +91,14 @@ export interface ServerlessClusterFromSnapshotProps {
   /**
    * The VPC that this Aurora Serverless cluster has been created in.
    */
-  readonly vpc: IVpc;
+  readonly vpc: aws_ec2.IVpc;
 
   /**
    * Where to place the instances within the VPC
    *
    * @default - the VPC default strategy if not specified.
    */
-  readonly vpcSubnets?: SubnetSelection;
+  readonly vpcSubnets?: aws_ec2.SubnetSelection;
 
   /**
    * Scaling configuration of an Aurora Serverless database cluster.
@@ -125,7 +107,7 @@ export interface ServerlessClusterFromSnapshotProps {
    *   minimum capacity: 2 ACU
    *   maximum capacity: 16 ACU
    */
-  readonly scaling?: ServerlessScalingOptions;
+  readonly scaling?: aws_rds.ServerlessScalingOptions;
 
   /**
    * The removal policy to apply when the cluster and its instances are removed
@@ -140,7 +122,7 @@ export interface ServerlessClusterFromSnapshotProps {
    *
    * @default - a new security group is created.
    */
-  readonly securityGroups?: ISecurityGroup[];
+  readonly securityGroups?: aws_ec2.ISecurityGroup[];
 
   /**
    * The KMS key for storage encryption.
@@ -149,21 +131,21 @@ export interface ServerlessClusterFromSnapshotProps {
    *
    * @default - the default master key will be used for storage encryption
    */
-  readonly storageEncryptionKey?: IKey;
+  readonly storageEncryptionKey?: aws_kms.IKey;
 
   /**
    * Additional parameters to pass to the database engine
    *
    * @default - no parameter group.
    */
-  readonly parameterGroup?: IParameterGroup;
+  readonly parameterGroup?: aws_rds.IParameterGroup;
 
   /**
    * Existing subnet group for the cluster.
    *
    * @default - a new subnet group will be created.
    */
-  readonly subnetGroup?: ISubnetGroup;
+  readonly subnetGroup?: aws_rds.ISubnetGroup;
 }
 
 /**
@@ -171,7 +153,7 @@ export interface ServerlessClusterFromSnapshotProps {
  *
  * @resource AWS::RDS::DBInstance
  */
-export class ServerlessClusterFromSnapshot extends Resource implements IServerlessCluster {
+export class ServerlessClusterFromSnapshot extends Resource implements aws_rds.IServerlessCluster {
   /**
    * Identifier of the cluster
    */
@@ -180,34 +162,34 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
   /**
    * The endpoint to use for read/write operations
    */
-  public readonly clusterEndpoint: Endpoint;
+  public readonly clusterEndpoint: aws_rds.Endpoint;
 
   /**
    * The endpoint to use for read/write operations
    */
-  public readonly clusterReadEndpoint: Endpoint;
+  public readonly clusterReadEndpoint: aws_rds.Endpoint;
 
   /**
    * Access to the network connections
    */
-  public readonly connections: Connections;
+  public readonly connections: aws_ec2.Connections;
 
   /**
    * The secret attached to this cluster
    */
-  public readonly secret?: ISecret;
+  public readonly secret?: aws_secretsmanager.ISecret;
 
   protected enableDataApi?: boolean;
 
-  private readonly subnetGroup: ISubnetGroup;
+  private readonly subnetGroup: aws_rds.ISubnetGroup;
 
-  private readonly vpc: IVpc;
+  private readonly vpc: aws_ec2.IVpc;
 
-  private readonly vpcSubnets?: SubnetSelection;
+  private readonly vpcSubnets?: aws_ec2.SubnetSelection;
 
-  private readonly singleUserRotationApplication: SecretRotationApplication;
+  private readonly singleUserRotationApplication: aws_secretsmanager.SecretRotationApplication;
 
-  private readonly multiUserRotationApplication: SecretRotationApplication;
+  private readonly multiUserRotationApplication: aws_secretsmanager.SecretRotationApplication;
 
   constructor(scope: Construct, id: string, props: ServerlessClusterFromSnapshotProps) {
     super(scope, id);
@@ -229,7 +211,7 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
 
     this.subnetGroup =
       props.subnetGroup ??
-      new SubnetGroup(this, "Subnets", {
+      new aws_rds.SubnetGroup(this, "Subnets", {
         description: `Subnets for ${id} database`,
         vpc: props.vpc,
         vpcSubnets: props.vpcSubnets,
@@ -251,17 +233,17 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
     const clusterParameterGroupConfig = clusterParameterGroup?.bindToCluster({});
 
     const securityGroups = props.securityGroups ?? [
-      new SecurityGroup(this, "SecurityGroup", {
+      new aws_ec2.SecurityGroup(this, "SecurityGroup", {
         description: "RDS security group",
         vpc: this.vpc,
       }),
     ];
 
-    const clusterIdentifier = FeatureFlags.of(this).isEnabled(RDS_LOWERCASE_DB_IDENTIFIER)
+    const clusterIdentifier = FeatureFlags.of(this).isEnabled(cx_api.RDS_LOWERCASE_DB_IDENTIFIER)
       ? props.clusterIdentifier?.toLowerCase()
       : props.clusterIdentifier;
 
-    const cluster = new CfnDBCluster(this, "Resource", {
+    const cluster = new aws_rds.CfnDBCluster(this, "Resource", {
       backupRetentionPeriod: props.backupRetention?.toDays(),
       databaseName: props.defaultDatabaseName,
       dbClusterIdentifier: clusterIdentifier,
@@ -282,11 +264,11 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
 
     // create a number token that represents the port of the cluster
     const portAttribute = Token.asNumber(cluster.attrEndpointPort);
-    this.clusterEndpoint = new Endpoint(cluster.attrEndpointAddress, portAttribute);
-    this.clusterReadEndpoint = new Endpoint(cluster.attrReadEndpointAddress, portAttribute);
-    this.connections = new Connections({
+    this.clusterEndpoint = new aws_rds.Endpoint(cluster.attrEndpointAddress, portAttribute);
+    this.clusterReadEndpoint = new aws_rds.Endpoint(cluster.attrReadEndpointAddress, portAttribute);
+    this.connections = new aws_ec2.Connections({
       securityGroups,
-      defaultPort: Port.tcp(this.clusterEndpoint.port),
+      defaultPort: aws_ec2.Port.tcp(this.clusterEndpoint.port),
     });
 
     cluster.applyRemovalPolicy(props.removalPolicy ?? RemovalPolicy.SNAPSHOT);
@@ -301,7 +283,7 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
   /**
    * Adds the single user rotation of the master password to this cluster.
    */
-  public addRotationSingleUser(options: RotationSingleUserOptions = {}): SecretRotation {
+  public addRotationSingleUser(options: aws_rds.RotationSingleUserOptions = {}): aws_secretsmanager.SecretRotation {
     if (!this.secret) {
       throw new Error("Cannot add single user rotation for a cluster without secret.");
     }
@@ -312,7 +294,7 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
       throw new Error("A single user rotation was already added to this cluster.");
     }
 
-    return new SecretRotation(this, id, {
+    return new aws_secretsmanager.SecretRotation(this, id, {
       secret: this.secret,
       application: this.singleUserRotationApplication,
       vpc: this.vpc,
@@ -326,11 +308,14 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
   /**
    * Adds the multi user rotation to this cluster.
    */
-  public addRotationMultiUser(id: string, options: RotationMultiUserOptions): SecretRotation {
+  public addRotationMultiUser(
+    id: string,
+    options: aws_rds.RotationMultiUserOptions
+  ): aws_secretsmanager.SecretRotation {
     if (!this.secret) {
       throw new Error("Cannot add multi user rotation for a cluster without secret.");
     }
-    return new SecretRotation(this, id, {
+    return new aws_secretsmanager.SecretRotation(this, id, {
       ...options,
       excludeCharacters: options.excludeCharacters ?? DEFAULT_PASSWORD_EXCLUDE_CHARS,
       masterSecret: this.secret,
@@ -340,7 +325,9 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
       target: this,
     });
   }
-  private renderScalingConfiguration(options: ServerlessScalingOptions): CfnDBCluster.ScalingConfigurationProperty {
+  private renderScalingConfiguration(
+    options: aws_rds.ServerlessScalingOptions
+  ): aws_rds.CfnDBCluster.ScalingConfigurationProperty {
     const minCapacity = options.minCapacity;
     const maxCapacity = options.maxCapacity;
 
@@ -378,13 +365,13 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
    *
    * @param grantee The principal to grant access to
    */
-  public grantDataApiAccess(grantee: IGrantable): Grant {
+  public grantDataApiAccess(grantee: aws_iam.IGrantable): aws_iam.Grant {
     if (this.enableDataApi === false) {
       throw new Error("Cannot grant Data API access when the Data API is disabled");
     }
 
     this.enableDataApi = true;
-    const ret = Grant.addToPrincipal({
+    const ret = aws_iam.Grant.addToPrincipal({
       grantee,
       actions: DATA_API_ACTIONS,
       resourceArns: ["*"],
@@ -397,10 +384,10 @@ export class ServerlessClusterFromSnapshot extends Resource implements IServerle
   /**
    * Renders the secret attachment target specifications.
    */
-  public asSecretAttachmentTarget(): SecretAttachmentTargetProps {
+  public asSecretAttachmentTarget(): aws_secretsmanager.SecretAttachmentTargetProps {
     return {
       targetId: this.clusterIdentifier,
-      targetType: AttachmentTargetType.RDS_DB_CLUSTER,
+      targetType: aws_secretsmanager.AttachmentTargetType.RDS_DB_CLUSTER,
     };
   }
 }
