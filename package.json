@@ -1,6 +1,6 @@
 {
   "name": "@pepperize/cdk-serverless-cluster-from-snapshot",
-  "description": "This project provides a CDK construct creating a serverless database cluster from a snapshot with AWS RDS Aurora engine.",
+  "description": "Deprecated: Use https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_rds.ServerlessClusterFromSnapshot.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/pepperize/cdk-serverless-cluster-from-snapshot.git"
@@ -128,7 +128,8 @@
     }
   },
   "types": "lib/index.d.ts",
-  "stability": "stable",
+  "stability": "deprecated",
+  "deprecated": true,
   "jsii": {
     "outdir": "dist",
     "targets": {

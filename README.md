@@ -7,6 +7,8 @@
 
 # AWS RDS Aurora serverless cluster from snapshot
 
+> Deprecated: Use https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_rds.ServerlessClusterFromSnapshot.html
+
 This project provides a CDK construct creating a serverless database cluster from a snapshot with AWS RDS Aurora engine.
 
 See [API.md](https://github.com/pepperize/cdk-serverless-cluster-from-snapshot/blob/main/API.md)

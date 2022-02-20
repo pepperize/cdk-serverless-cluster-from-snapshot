@@ -1,6 +1,8 @@
 const { AwsCdkConstructLibrary } = require("@pepperize/projen-awscdk-construct");
-const { NpmAccess } = require("projen/lib/javascript");
+const { cdk, javascript } = require("projen");
 const project = new AwsCdkConstructLibrary({
+  stability: cdk.Stability.DEPRECATED,
+
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
   license: "MIT",
@@ -9,14 +11,14 @@ const project = new AwsCdkConstructLibrary({
   defaultReleaseBranch: "main",
   name: "@pepperize/cdk-serverless-cluster-from-snapshot",
   description:
-    "This project provides a CDK construct creating a serverless database cluster from a snapshot with AWS RDS Aurora engine.",
+    "Deprecated: Use https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_rds.ServerlessClusterFromSnapshot.html",
   keywords: ["AWS", "CDK", "Serverless", "Cluster", "RDS", "Aurora", "Database", "Snapshot"],
   repositoryUrl: "https://github.com/pepperize/cdk-serverless-cluster-from-snapshot.git",
   testDeps: ["@aws-cdk/assertions"],
   devDeps: ["@pepperize/projen-awscdk-construct@^0.0.8", "cdk-nag@^2.0.0"],
 
   releaseToNpm: true,
-  npmAccess: NpmAccess.PUBLIC,
+  npmAccess: javascript.NpmAccess.PUBLIC,
   publishToNuget: {
     dotNetNamespace: "Pepperize.CDK",
     packageId: "Pepperize.CDK.ServerlessClusterFromSnapshot",
