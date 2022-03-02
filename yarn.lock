@@ -1360,9 +1360,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.7.5"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.7.5.tgz#d5f32bdbdb9d9e85fa6475ad09623f15fc32d3e2"
-  integrity sha512-mvX3dXyTWokwjS3jTobDlX4L1ZT1Snmte/QvN6OEnbjsdC+MVbISqLwM25pYQKCGjyiuCNNBLQJ7IH2qgexJkQ==
+  version "2.7.10"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.7.10.tgz#bb6e798c6bdc9b29c94f5b5a5446e252a72da477"
+  integrity sha512-jqF+he1zou+s3qArU/kHhHwgLjFb9WxmSKQCxTVmTISY6ktLP84h6F8iwWaWvYGHRMtwoWa3a+zR7gzVFVg9xw==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -2119,9 +2119,9 @@ escodegen@^2.0.0:
     source-map "~0.6.1"
 
 eslint-config-prettier@^8.3.0:
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.4.0.tgz#8e6d17c7436649e98c4c2189868562921ef563de"
-  integrity sha512-CFotdUcMY18nGRo5KGsnNxpznzhkopOcOo0InID+sgQssPrzjvsyKZPvOgymTFeHrFuC3Tzdf2YndhXtULK9Iw==
+  version "8.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.5.0.tgz#5a81680ec934beca02c7b1a61cf8ca34b66feab1"
+  integrity sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==
 
 eslint-import-resolver-node@^0.3.6:
   version "0.3.6"
