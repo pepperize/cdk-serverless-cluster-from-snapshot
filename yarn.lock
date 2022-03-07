@@ -801,9 +801,9 @@
   integrity sha512-eKj4f/BsN/qcculZiRSujogjvp5O/k4lOW5m35NopjZM/QwLOR075a8pJW5hD+Rtdm2DaCVPENS6KtSQnUD6BA==
 
 "@types/node@^12":
-  version "12.20.46"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.46.tgz#7e49dee4c54fd19584e6a9e0da5f3dc2e9136bc7"
-  integrity sha512-cPjLXj8d6anFPzFvOPxS3fvly3Shm5nTfl6g8X5smexixbuGUf7hfr21J5tX9JW+UPStp/5P5R8qrKL5IyVJ+A==
+  version "12.20.47"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.47.tgz#ca9237d51f2a2557419688511dab1c8daf475188"
+  integrity sha512-BzcaRsnFuznzOItW1WpQrDHM7plAa7GIDMZ6b5pnMbkqEtM/6WCOhvZar39oeMQP79gwvFUWjjptE7/KGcNqFg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -1369,9 +1369,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.9.1.tgz#366494b5578d86290c4fc2866b036827f2870c13"
-  integrity sha512-MX87dA2r7DG2Pz/dBhQ28A32zdf8xey3QGuEOvL6tFWdDVAsHs+re7VmvHgRq6+BVXySmcGBulcMZjczI7rDcA==
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.9.4.tgz#1109ba54693f772b8b842761e4f187d703c14570"
+  integrity sha512-Nqh/M7s4U2Qm8t+YJOoqQBckVM8oofKbMcV1bfrhZFDlno4FQgAdchJwKkFT1YX2TI85xcUUW/T2nT0McD9l1w==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -3756,9 +3756,9 @@ jsii-diff@^1.52.1:
     yargs "^16.2.0"
 
 jsii-docgen@^6.1.9:
-  version "6.1.21"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-6.1.21.tgz#66ae68a64a85788bdd9eaf84179e257b3667cda0"
-  integrity sha512-UHi3GE6mDh0HJ2fi6gykL5ka84Q6HBPROt+6OtZL+FUf6RRk7t0sLAHHcVNBG+IxlPuoBuTp6Jvd0nD+rsmvNg==
+  version "6.1.24"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-6.1.24.tgz#0f6b3a828764146605c8e4b00c3c7e6bd3e8d1a2"
+  integrity sha512-jLbiE2Drholtyt9JOFo8Kjd8i1wcXyIID6LJAxQ+/q1xkKpFPdmVwMfA3N/EtFwhi7FxZZw+BccbnWXm3CFqLg==
   dependencies:
     "@jsii/spec" "^1.54.0"
     case "^1.6.3"
