@@ -3771,9 +3771,9 @@ jsii-diff@^1.52.1:
     yargs "^16.2.0"
 
 jsii-docgen@^6.1.9:
-  version "6.1.27"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-6.1.27.tgz#a403e698c3724fc41961a68ac314c2fcdb36ac67"
-  integrity sha512-4HBnTGLCKp6Q8eLHarjH/KCBBwEd/8WnaRrSTmf1E4ypi4XwLAAXBzPFNuSerztM48LOs1a1zBqzaQL4l2jUSw==
+  version "6.1.28"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-6.1.28.tgz#3b794eac3ec836ea0aefea723861ad7842bb0894"
+  integrity sha512-Vuode0IafW6jG+r7KOWCGVGpAm46DsWMnDas/VJtCxvKJyRbRkNxaCLG2geYHfgKFqxfFeE1jzqJ5yb6GDjkPg==
   dependencies:
     "@jsii/spec" "^1.54.0"
     case "^1.6.3"
@@ -3816,7 +3816,7 @@ jsii-rosetta@^1.54.0:
     workerpool "^6.2.0"
     yargs "^16.2.0"
 
-jsii@1.54.0, jsii@^1.52.1:
+jsii@1.54.0:
   version "1.54.0"
   resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.54.0.tgz#300fabed7204ec7afab2f3cf6e45faffc00067a7"
   integrity sha512-XuqGpmGIxFcX2GvX3zjcHBzBeZ7+tJ7hr5tu/7qV6wQ/thXuZFdAoj2znSgBkpGOt6mjtRuqv01HIRl25Nys5g==
@@ -3831,6 +3831,25 @@ jsii@1.54.0, jsii@^1.52.1:
     semver "^7.3.5"
     semver-intersect "^1.4.0"
     sort-json "^2.0.0"
+    spdx-license-list "^6.4.0"
+    typescript "~3.9.10"
+    yargs "^16.2.0"
+
+jsii@^1.52.1:
+  version "1.55.0"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.55.0.tgz#b8f98d68e70ed1d7344d8e14034879074fef3937"
+  integrity sha512-OpY67STJMTqF/pQRYMXx8xaA1lCnKoQCnraB043tkx6F3reyUNzlIzSIkQIgTEFoBa/OEYANHdtHJCfw6Y3nzA==
+  dependencies:
+    "@jsii/check-node" "1.55.0"
+    "@jsii/spec" "^1.55.0"
+    case "^1.6.3"
+    chalk "^4"
+    deep-equal "^2.0.5"
+    fs-extra "^9.1.0"
+    log4js "^6.4.1"
+    semver "^7.3.5"
+    semver-intersect "^1.4.0"
+    sort-json "^2.0.1"
     spdx-license-list "^6.4.0"
     typescript "~3.9.10"
     yargs "^16.2.0"
@@ -5342,7 +5361,7 @@ socks@^2.6.1:
     ip "^1.1.5"
     smart-buffer "^4.1.0"
 
-sort-json@^2.0.0:
+sort-json@^2.0.0, sort-json@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/sort-json/-/sort-json-2.0.1.tgz#7338783bef807185dc37d5b02e3afd905d537cfb"
   integrity sha512-s8cs2bcsQCzo/P2T/uoU6Js4dS/jnX8+4xunziNoq9qmSpZNCrRIAIvp4avsz0ST18HycV4z/7myJ7jsHWB2XQ==
