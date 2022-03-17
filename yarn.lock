@@ -1369,9 +1369,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.11.1.tgz#18805268966f06977a1e89f31c763b072f646335"
-  integrity sha512-1nPQ0HDDcCaxDdMTTKsGZvVLsOQdSGda5R+STx/Kx438a6QG8wMr0fx8S15dhQYRymOgoYNCRJvWfVxZywqVpQ==
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.11.3.tgz#4350d5f5a39e8a20a67262b427bf3b5436821425"
+  integrity sha512-O747ggtxlZcMLqfdrjyzJuCgVCBCSMirau+VOBCbyT4HjTMTcSdBODN8bDiJNMUdZ7sBuoDITFmNCAwLRJsVlg==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -4404,9 +4404,9 @@ npm-bundled@^1.1.1:
     npm-normalize-package-bin "^1.0.1"
 
 npm-check-updates@^12:
-  version "12.5.3"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-12.5.3.tgz#419292a9be0478754e747d9d52dfafac3dc8a907"
-  integrity sha512-siFg/+Un+j4tLA6GJCnk6hz2YU4Yc5bftDnOoiSRLKL6NeAS3FScB32mtKNBtITMJf2nsoZSr8vH+wdUGeP19g==
+  version "12.5.4"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-12.5.4.tgz#c783b9ec6e27508a91c97d343f7714f1b5e43ec4"
+  integrity sha512-4+27zaTdieWgvPLaCZ/A6Q2WC1cYVcrc2SqVmLFYgkWBrKw1QkwpeV16FSvkFGZr3OdFyr7Dpjw8JRn4H2QxFw==
   dependencies:
     chalk "^4.1.2"
     cint "^8.2.1"
