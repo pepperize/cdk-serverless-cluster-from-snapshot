@@ -530,14 +530,6 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@jsii/check-node@1.61.0":
-  version "1.61.0"
-  resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.61.0.tgz#ba70e27cd21d4b5dd2af3d3c37f74eaea40dc56d"
-  integrity sha512-U6b2iNZZweV2qRvidCCZIOLFpTe6Kc8eZc9v8CbUtK2btChNYiWTkms4VUOcONIYT5uPfNlZpHZiqTr+Oqxmkg==
-  dependencies:
-    chalk "^4.1.2"
-    semver "^7.3.7"
-
 "@jsii/check-node@1.69.0":
   version "1.69.0"
   resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.69.0.tgz#74f4db123f5dd1d4dd3d30cfa54a0a75d8b94d9d"
@@ -546,7 +538,7 @@
     chalk "^4.1.2"
     semver "^7.3.7"
 
-"@jsii/spec@1.69.0", "@jsii/spec@^1.57.0", "@jsii/spec@^1.61.0", "@jsii/spec@^1.69.0":
+"@jsii/spec@1.69.0", "@jsii/spec@^1.57.0", "@jsii/spec@^1.69.0":
   version "1.69.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.69.0.tgz#aff2db2d930b04fb832a04ecb8f166b1cf21982f"
   integrity sha512-Dj41jQc6GgbXHyc/IzhmKdrMJSuF7hetRmCkwMvj0/T2WWNAUK/UNNw40QnksfIhB8yooDAoMqGVU/71fbDyaA==
@@ -3780,7 +3772,7 @@ jsii-rosetta@^1.57.0:
     workerpool "^6.2.1"
     yargs "^16.2.0"
 
-jsii@1.69.0:
+jsii@1.69.0, jsii@^1.52.1:
   version "1.69.0"
   resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.69.0.tgz#f3ec71ea710db8d3a0d677d39c32aa55930a903c"
   integrity sha512-gusMQ8inlV2/51KsZmZ/H+FeoExrloksgeg8ohvIgF3tvqZKZDh0LvJFGNEeqcJzr+P1OZ3KHVEUI2M0XXicRw==
@@ -3797,25 +3789,6 @@ jsii@1.69.0:
     sort-json "^2.0.1"
     spdx-license-list "^6.6.0"
     typescript "~3.9.10"
-    yargs "^16.2.0"
-
-jsii@^1.52.1:
-  version "1.61.0"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.61.0.tgz#085af3c3ccfacaf5450907062a32be0c7ecbd8a1"
-  integrity sha512-haGNRe3k0bhTqUKjMQ/ZBq9H3BR7gB88+wSdvCzQ9IIN6XJNeTB9SvB5ry9XIwn6qk8THF7LXtaLga9Nzz+gFA==
-  dependencies:
-    "@jsii/check-node" "1.61.0"
-    "@jsii/spec" "^1.61.0"
-    case "^1.6.3"
-    chalk "^4"
-    fast-deep-equal "^3.1.3"
-    fs-extra "^10.1.0"
-    log4js "^6.5.2"
-    semver "^7.3.7"
-    semver-intersect "^1.4.0"
-    sort-json "^2.0.1"
-    spdx-license-list "^6.6.0"
-    typescript-3.9 "npm:typescript@~3.9.10"
     yargs "^16.2.0"
 
 json-buffer@3.0.0:
@@ -4029,7 +4002,7 @@ lodash@^4.17.15, lodash@^4.17.21, lodash@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-log4js@^6.5.2, log4js@^6.6.1:
+log4js@^6.6.1:
   version "6.6.1"
   resolved "https://registry.yarnpkg.com/log4js/-/log4js-6.6.1.tgz#48f23de8a87d2f5ffd3d913f24ca9ce77895272f"
   integrity sha512-J8VYFH2UQq/xucdNu71io4Fo+purYYudyErgBbswWKO0MC6QVOERRomt5su/z6d3RJSmLyTGmXl3Q/XjKCf+/A==
@@ -5828,16 +5801,16 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-"typescript-3.9@npm:typescript@~3.9.10", typescript@~3.9.10:
-  name typescript-3.9
-  version "3.9.10"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.10.tgz#70f3910ac7a51ed6bef79da7800690b19bf778b8"
-  integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
-
 typescript@^4.5.4:
   version "4.8.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
   integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
+
+typescript@~3.9.10:
+  name typescript-3.9
+  version "3.9.10"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.10.tgz#70f3910ac7a51ed6bef79da7800690b19bf778b8"
+  integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
 
 uglify-js@^3.1.4:
   version "3.14.5"
