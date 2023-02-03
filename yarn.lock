@@ -1507,9 +1507,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.21.75"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.21.75.tgz#cab46626a0b59f6dc985654b87cc032cd60ea747"
-  integrity sha512-c9FuyI/EEbigIy8GmyLWZtbWvIYkSplAviM14btrb2EuWltyFZ9E1ydtG6BnII1hTlUSscReG6Uwt9vwV3n3pA==
+  version "2.21.78"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.21.78.tgz#c6f7e338898c1d115e48ccb30c152c6dd3a88f58"
+  integrity sha512-KgLLPx9fEpWpvF2K3REqfQrWNqmspbTABNmiVG0aRuO4bguJLETT2399rq9VUT4lWVYMDkSyI+p6iyQfchnskQ==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -6144,9 +6144,9 @@ typedarray@^0.0.6:
   integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
 
 typescript@^4.5.4:
-  version "4.9.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.4.tgz#a2a3d2756c079abda241d75f149df9d561091e78"
-  integrity sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==
+  version "4.9.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
+  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 uglify-js@^3.1.4:
   version "3.14.5"
