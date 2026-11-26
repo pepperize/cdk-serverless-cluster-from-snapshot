@@ -2,49 +2,41 @@
   "dependencies": [
     {
       "name": "@pepperize/projen-awscdk-construct",
-      "version": "^0.0.8",
+      "version": "~0.1.1",
       "type": "build"
     },
     {
       "name": "@types/jest",
+      "version": "^30",
       "type": "build"
     },
     {
       "name": "@types/node",
-      "version": "^12",
+      "version": "^22",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/eslint-plugin",
-      "version": "^5",
+      "version": "^8",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/parser",
-      "version": "^5",
-      "type": "build"
-    },
-    {
-      "name": "aws-cdk-lib",
-      "version": "2.8.0",
+      "version": "^8",
       "type": "build"
     },
     {
       "name": "cdk-nag",
-      "version": "^2.0.0",
+      "version": "^2",
       "type": "build"
     },
     {
-      "name": "constructs",
-      "version": "10.0.5",
+      "name": "commit-and-tag-version",
+      "version": "^13",
       "type": "build"
     },
     {
       "name": "eslint-config-prettier",
-      "type": "build"
-    },
-    {
-      "name": "eslint-import-resolver-node",
       "type": "build"
     },
     {
@@ -61,20 +53,17 @@
     },
     {
       "name": "eslint",
-      "version": "^8",
-      "type": "build"
-    },
-    {
-      "name": "jest",
+      "version": "^9",
       "type": "build"
     },
     {
       "name": "jest-junit",
-      "version": "^13",
+      "version": "^17",
       "type": "build"
     },
     {
-      "name": "jsii",
+      "name": "jest",
+      "version": "^30",
       "type": "build"
     },
     {
@@ -83,15 +72,21 @@
     },
     {
       "name": "jsii-docgen",
+      "version": "^10.5.0",
       "type": "build"
     },
     {
-      "name": "json-schema",
+      "name": "jsii-pacmak",
       "type": "build"
     },
     {
-      "name": "npm-check-updates",
-      "version": "^12",
+      "name": "jsii-rosetta",
+      "version": "~6.0.0",
+      "type": "build"
+    },
+    {
+      "name": "jsii",
+      "version": "~6.0.0",
       "type": "build"
     },
     {
@@ -103,26 +98,28 @@
       "type": "build"
     },
     {
-      "name": "standard-version",
-      "version": "^9",
-      "type": "build"
-    },
-    {
       "name": "ts-jest",
+      "version": "^29",
       "type": "build"
     },
     {
       "name": "typescript",
+      "version": "~6.0",
       "type": "build"
     },
     {
+      "name": "projen",
+      "version": "~0.105.12",
+      "type": "devenv"
+    },
+    {
       "name": "aws-cdk-lib",
-      "version": "^2.8.0",
+      "version": "^2.278.0",
       "type": "peer"
     },
     {
       "name": "constructs",
-      "version": "^10.0.5",
+      "version": "^10.5.1",
       "type": "peer"
     }
   ],

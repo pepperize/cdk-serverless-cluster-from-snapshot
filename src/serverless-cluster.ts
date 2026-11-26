@@ -15,13 +15,45 @@ import {
   ArnFormat,
   Stack,
 } from "aws-cdk-lib";
-import { DATA_API_ACTIONS } from "aws-cdk-lib/aws-rds/lib/perms";
-import {
-  DEFAULT_PASSWORD_EXCLUDE_CHARS,
-  defaultDeletionProtection,
-  renderCredentials,
-} from "aws-cdk-lib/aws-rds/lib/private/util";
 import { Construct } from "constructs";
+
+// copied from aws-cdk-lib/aws-rds/lib/perms, which is no longer exported
+const DATA_API_ACTIONS = [
+  "rds-data:BatchExecuteStatement",
+  "rds-data:BeginTransaction",
+  "rds-data:CommitTransaction",
+  "rds-data:ExecuteStatement",
+  "rds-data:RollbackTransaction",
+];
+
+// copied from aws-cdk-lib/aws-rds/lib/private/util, which is no longer exported
+const DEFAULT_PASSWORD_EXCLUDE_CHARS = " %+~`#$&*()|[]{}:;<>?!'/@\"\\";
+
+function defaultDeletionProtection(deletionProtection?: boolean, removalPolicy?: RemovalPolicy): boolean | undefined {
+  return deletionProtection ?? (removalPolicy === RemovalPolicy.RETAIN ? true : undefined);
+}
+
+function renderCredentials(
+  scope: Construct,
+  engine: aws_rds.IEngine,
+  credentials?: aws_rds.Credentials,
+): aws_rds.Credentials {
+  let renderedCredentials = credentials ?? aws_rds.Credentials.fromUsername(engine.defaultUsername ?? "admin");
+  if (!renderedCredentials.secret && !renderedCredentials.password) {
+    renderedCredentials = aws_rds.Credentials.fromSecret(
+      new aws_rds.DatabaseSecret(scope, "Secret", {
+        username: renderedCredentials.username,
+        secretName: renderedCredentials.secretName,
+        encryptionKey: renderedCredentials.encryptionKey,
+        excludeCharacters: renderedCredentials.excludeCharacters,
+        replaceOnPasswordCriteriaChanges: credentials?.usernameAsString,
+        replicaRegions: renderedCredentials.replicaRegions,
+      }),
+      credentials?.usernameAsString ? renderedCredentials.username : undefined,
+    );
+  }
+  return renderedCredentials;
+}
 
 /**
  *  Properties to configure an Aurora Serverless Cluster
@@ -310,7 +342,7 @@ export class ServerlessClusterFromSnapshot extends Resource implements aws_rds.I
    */
   public addRotationMultiUser(
     id: string,
-    options: aws_rds.RotationMultiUserOptions
+    options: aws_rds.RotationMultiUserOptions,
   ): aws_secretsmanager.SecretRotation {
     if (!this.secret) {
       throw new Error("Cannot add multi user rotation for a cluster without secret.");
@@ -326,7 +358,7 @@ export class ServerlessClusterFromSnapshot extends Resource implements aws_rds.I
     });
   }
   private renderScalingConfiguration(
-    options: aws_rds.ServerlessScalingOptions
+    options: aws_rds.ServerlessScalingOptions,
   ): aws_rds.CfnDBCluster.ScalingConfigurationProperty {
     const minCapacity = options.minCapacity;
     const maxCapacity = options.maxCapacity;
@@ -358,6 +390,16 @@ export class ServerlessClusterFromSnapshot extends Resource implements aws_rds.I
       arnFormat: ArnFormat.COLON_RESOURCE_NAME,
       resourceName: this.clusterIdentifier,
     });
+  }
+
+  /**
+   * A reference to this cluster
+   */
+  public get dbClusterRef(): aws_rds.DBClusterReference {
+    return {
+      dbClusterIdentifier: this.clusterIdentifier,
+      dbClusterArn: this.clusterArn,
+    };
   }
 
   /**
