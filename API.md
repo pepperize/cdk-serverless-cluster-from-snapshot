@@ -4,7 +4,7 @@
 
 ### ServerlessClusterFromSnapshot <a name="ServerlessClusterFromSnapshot" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot"></a>
 
-- *Implements:* aws-cdk-lib.aws_rds.IServerlessCluster
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware, aws-cdk-lib.aws_rds.IServerlessCluster, aws-cdk-lib.aws_ec2.IConnectable, aws-cdk-lib.aws_secretsmanager.ISecretAttachmentTarget, aws-cdk-lib.interfaces.aws_rds.IDBClusterRef
 
 A Serverless Cluster restored from a snapshot.
 
@@ -47,6 +47,8 @@ new ServerlessClusterFromSnapshot(scope: Construct, id: string, props: Serverles
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.addRotationMultiUser">addRotationMultiUser</a></code> | Adds the multi user rotation to this cluster. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.addRotationSingleUser">addRotationSingleUser</a></code> | Adds the single user rotation of the master password to this cluster. |
@@ -62,6 +64,47 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.applyRemovalPolicy"></a>
 
@@ -148,11 +191,12 @@ The principal to grant access to.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.isConstruct"></a>
 
 ```typescript
 import { ServerlessClusterFromSnapshot } from '@pepperize/cdk-serverless-cluster-from-snapshot'
@@ -162,11 +206,41 @@ ServerlessClusterFromSnapshot.isConstruct(x: any)
 
 Checks if `x` is a construct.
 
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.isOwnedResource"></a>
+
+```typescript
+import { ServerlessClusterFromSnapshot } from '@pepperize/cdk-serverless-cluster-from-snapshot'
+
+ServerlessClusterFromSnapshot.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -191,13 +265,14 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.clusterArn">clusterArn</a></code> | <code>string</code> | The ARN of the cluster. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.clusterEndpoint">clusterEndpoint</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint</code> | The endpoint to use for read/write operations. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | Identifier of the cluster. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.clusterReadEndpoint">clusterReadEndpoint</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint</code> | The endpoint to use for read/write operations. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access to the network connections. |
+| <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.dbClusterRef">dbClusterRef</a></code> | <code>aws-cdk-lib.interfaces.aws_rds.DBClusterReference</code> | A reference to this cluster. |
 | <code><a href="#@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The secret attached to this cluster. |
 
 ---
@@ -220,16 +295,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -302,6 +378,18 @@ public readonly connections: Connections;
 - *Type:* aws-cdk-lib.aws_ec2.Connections
 
 Access to the network connections.
+
+---
+
+##### `dbClusterRef`<sup>Required</sup> <a name="dbClusterRef" id="@pepperize/cdk-serverless-cluster-from-snapshot.ServerlessClusterFromSnapshot.property.dbClusterRef"></a>
+
+```typescript
+public readonly dbClusterRef: DBClusterReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_rds.DBClusterReference
+
+A reference to this cluster.
 
 ---
 
